@@ -1,0 +1,13 @@
+Package: pdR
+Type: Package
+Title: panel data regression
+Version: 1.1
+Date: 2014-09-01
+Author: Ho Tsung-wu
+Maintainer: Ho Tsung-wu <tsungwu@cc.shu.edu.tw>
+Description: threshold regression in panel data 
+License: GPL (>= 2)
+Packaged: 2014-09-01 08:00:01 UTC; shu
+NeedsCompilation: no
+Repository: CRAN
+Date/Publication: 2014-09-01 10:36:12
