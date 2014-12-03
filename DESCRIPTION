@@ -1,13 +1,14 @@
 Package: pdR
 Type: Package
-Title: panel data regression
-Version: 1.1
-Date: 2014-09-01
+Title: threshold regression and unit root test in panel data
+Version: 1.2
+Date: 2014-12-03
 Author: Ho Tsung-wu
 Maintainer: Ho Tsung-wu <tsungwu@cc.shu.edu.tw>
-Description: threshold regression in panel data 
+Description: Panel threshold and IGF unit root test
 License: GPL (>= 2)
-Packaged: 2014-09-01 08:00:01 UTC; shu
+LazyLoad: yes
+Packaged: 2014-12-03 13:30:20 UTC; tsungwu
 NeedsCompilation: no
 Repository: CRAN
-Date/Publication: 2014-09-01 10:36:12
+Date/Publication: 2014-12-03 17:04:46

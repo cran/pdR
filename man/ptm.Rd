@@ -51,40 +51,36 @@ bootn and trimn are vector of 3 by 1, indicating numbers of three corresponding 
 %%  ~~ If necessary, more details than the description above ~~
 }
 
-\references{Hanse B. E. (1999) Threshold effects in non-dynamic panels: Estimation, testing and inference. Journal of Econometrics,93, 345-368.
+\references{Hanse B. E. (1999) Threshold effects in non-dynamic panels: Estimation, testing and inference.  \emph{Journal of Econometrics},93, 345-368.
 %% ~put references to the literature/web site here ~
 }
 \author{Prof. Tsung-wu Ho, Dept of Finance, Shih Hsin University, Taiwan, Taipei
-%%  ~~who you are~~
-}
-\note{In addition to Dr. Hanse's contributions to threshold modeling, in the future, this package plans to include some special panel unit root tests based upon instrument generating functions(IGF), proposed by Chang (2002, J. of Econometrics), and seasonal panel unit root test, and regression quantile panel linear model(rqplm).. 
-%%  ~~further notes~~
 }
 
-%% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \examples{
-# not run. This example is merely an illustration, to execute it,
-# please unmark the symbol # of each line below
-
-#library(plm)
-#data("Produc")
-#dat=Produc
-#attach(dat)
+# library(pdR)
+#data(invest)
+#dat<-invest[1:1500,]    # subsetting the first 1500 obs., #for simplicity
+#t <- 15            #Length of time period
 #nt <- nrow(dat)
-#n <- 48;t=nt/n
+#n <- nt/t           # number of cross-section units
 
-#dep<- log(gsp)       # dependent variable             
-#ind1<- cbind(log(pcap),log(pc))      # regime-dep:  
-#ind2 <- cbind(log(emp),unemp)        # regime-indep:
-#d <- log(emp)                        # Threshold variable  
+#dep<- as.matrix(dat[,1])       # investment/assets
+#th1<- as.matrix(dat[,2])  #Tobin's Q
+#th2<- as.matrix(dat[,3])  # cash-flow/assets
+#ind1<- cbind(th1,th2)  #regime-dep covariates 
+#d <- as.matrix(dat[,4])      # Threshold variable      
+#ind2 <- cbind((th1^2),(th1^3),(th1*d)) # regime-indep covariates:
+#bootn<-c(100,200,300)  # bootstrapping replications for each  threshold esitmation
+#trimn<-c(0.05,0.05,0.05)   #trimmed percentage for each threshold  esitmation
 
-#bootn=c(100,100,100)
-#trimn=c(0.01,0.01,0.05)
-
-#qn=400
-#conf_lev=0.95
+#qn<-400
+#conf_lev<-0.95
 #max_lag <- 1
 
-# ptm(dep,ind1,ind2,d,bootn,trimn,qn,conf_lev,max_lag,t,n)
+#ptm(dep,ind1,ind2,d,bootn,trimn,qn,conf_lev,max_lag,t,n)
+
+# In the output, the Regime-dependent Coefficients matrix
+# is, from top to bottom, regime-wise.
 }
