@@ -18,7 +18,7 @@ Compute the resursive mean
 This function computes the resursive mean
 }
 
-\author{Ho Tsung-wu <tsungwu@cc.shu.edu.tw>
+\author{Ho Tsungwu <tsungwu@cc.shu.edu.tw>
 }
 
 

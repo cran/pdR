@@ -51,7 +51,7 @@ bootn and trimn are vector of 3 by 1, indicating numbers of three corresponding 
 %%  ~~ If necessary, more details than the description above ~~
 }
 
-\references{Hanse B. E. (1999) Threshold effects in non-dynamic panels: Estimation, testing and inference.  \emph{Journal of Econometrics},93, 345-368.
+\references{Hanse B. E. (1999) Threshold effects in non-dynamic panels: Estimation, testing and inference. Journal of Econometrics,93, 345-368.
 %% ~put references to the literature/web site here ~
 }
 \author{Prof. Tsung-wu Ho, Dept of Finance, Shih Hsin University, Taiwan, Taipei

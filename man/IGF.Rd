@@ -7,28 +7,32 @@
 
 \encoding{latin1}
 
-\description{
-This function estimates the unit root regression based on instrument generating function of Change(2002) and returns useful outputs.
+\description{This function estimates the unit root regression based on instrument generating function of Change(2002) and returns useful outputs.
 }
+
 \usage{
 IGF(y, maxp, ic, spec)
 }
 
 \arguments{
   \item{y}{A univariate time series data
+
 }
-  \item{maxp}{integer, the max number of lags
+  \item{maxp}{the max number of lags
+
 }
   \item{ic}{Information criteria, either "AIC" or "BIC"
+
 }
   \item{spec}{regression model specification.\cr
 =0, no intercept and trend.\cr
 =1, intercept only.\cr
 =2, intercept and trend.
+
 }
 }
-\details{Estimate univariate unit root test of Chang(2002).
-}
+\details{Estimate univariate unit root test of Chang(2002).}
+
 \value{
 \item{tstat.IGF}{IGF unit root test}
 \item{beta}{regression coefficients. The first one is the AR(1) coefficient of unit root, and the last one is the intercept or trend}
@@ -37,9 +41,10 @@ IGF(y, maxp, ic, spec)
 \item{p}{The optimal number of lag}
 
 }
-\references{Chang, Y. (2002) Nonlinear IV Unit Root Tests in Panels with Cross-Sectional Dependency.  \emph{Journal of Econometrics}, 110, 261¡V292.
-}
+\references{
+Chang, Y. (2002) Nonlinear IV Unit Root Tests in Panels with Cross-Sectional Dependency. Journal of Econometrics, 110, 261-292.
 
+}
 \author{
 Ho Tsungwu <tsungwu@cc.shu.edu.tw>
 }

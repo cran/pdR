@@ -1,15 +1,16 @@
 \name{pIGF}
 \alias{pIGF}
 
-\title{Panel unit root test of Chang(2002)
-
-}
+\title{Panel unit root test of Chang(2002)}
 
 \encoding{latin1}
+
 
 \description{Compute the panel unit root test statistic of Chang(2002).
 
 }
+
+
 \usage{
 pIGF(datamat, maxp, ic, spec)
 }
@@ -31,6 +32,7 @@ pIGF(datamat, maxp, ic, spec)
 
 }
 }
+
 \details{This function estimates the panel unit root test based on univariate instrument generating function of (Chang,2002).
 
 }
@@ -39,12 +41,12 @@ pIGF(datamat, maxp, ic, spec)
 \item{ pvalue }{ P-value of the panel.tstat }
 
 }
+
 \references{
-Chang, Y. (2002) Nonlinear IV Unit Root Tests in Panels with Cross-Sectional Dependency.  \emph{Journal of Econometrics}, 110, 261¡V292.
+Chang,Y.(2002) Nonlinear IV Unit Root Tests in Panels with Cross-Sectional Dependency. Journal of Econometrics, 110, 261-292.
 }
 
-\author{Ho Tsung-wu <tsungwu@cc.shu.edu.tw>
-}
+\author{Ho Tsungwu <tsungwu@cc.shu.edu.tw>}
 
 \examples{
 data(inf19)
