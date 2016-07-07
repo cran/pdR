@@ -211,13 +211,17 @@ vgraph=1
       rhat
 }
 
-ptm <- function(dep,ind1,ind2,d,bootn,trimn,qn,conf_lev,max_lag,t,n){
+ptm <- function(dep,ind1,ind2,d,bootn,trimn,qn,conf_lev,t,n){
 
-boot_1=bootn[1];boot_2=bootn[2];boot_3=bootn[3]
-trim_1=trimn[1];trim_2=trimn[2];trim_3=trimn[3]
+boot_1=bootn[1]
+boot_2=bootn[2]
+boot_3=bootn[3]
+trim_1=trimn[1]
+trim_2=trimn[2]
+trim_3=trimn[3]
 
-tt <- t-max_lag
-ty <- n*(t-max_lag-1)
+tt <- t
+ty <- n*tt
 
 y  <- dep
 cf=ind1
@@ -227,8 +231,7 @@ for (j in 1:ncol(cf)) { ct=cbind(ct,tr(cf[,j],tt,n)) }
 
 d1 <- d   # set to threshold variable
 yt <- tr(y,tt,n)
-#q1 <- ind2
-#x <- cbind(q1,(q1^2),(q1^3),d1,(q1*d1))
+
 x<-ind2
 k <- ncol(x)
 xt <- matrix(c(0),nrow=nrow(yt),ncol=k)

@@ -56,10 +56,10 @@ HEGY.test <- function(wts, itsd, regvar=0, selectlags=list(mode="signf", Pmax=NU
            bic   = selP <- selPabic(lmdet=lmhegyp, type="bic", Pmax=selectlags[[2]]),
            signf = selP <- selPsignf(lmdet=lmhegyp, cvref=NULL, Pmax=selectlags[[2]]),)
   
-  # HEGY regression.
-  # lmdetlag: regression with deterministic components and lags 
-  # (without the hegy regressors).
-  # lmhegy: lmdetlag including the hegy regressors.
+# HEGY regression.
+# lmdetlag: regression with deterministic components and lags 
+# (without the hegy regressors).
+# lmhegy: lmdetlag including the hegy regressors.
   if(identical(selP, 0) || length(selP)==0){
     if(length(Mdetreg)==0){
       lmdetlag <- lm(Deltay[,1] ~ 0)
@@ -141,7 +141,6 @@ HEGY.test <- function(wts, itsd, regvar=0, selectlags=list(mode="signf", Pmax=NU
   #dim(EtFst) <- c((s/2+3), 2);
   dimnames(EtFst) <- list(EtFsnames, c("Stat.", "p-value"))
   hegystat<-list(wts=wts, itsd=itsd, regvar=regvar, hegyreg=Mhegyreg, selectlags=selectlags,regvarcoefs=regvarcoefs, hegycoefs=hegycoefs, lagsorder=selP, lagcoefs=lagcoefs,res=residuals(lmhegy), lmhegy=lmhegyout, stats=EtFst)
-  # new("hegystat", wts=wts, itsd=itsd, regvar=regvar, hegyreg=Mhegyreg, selectlags=selectlags,regvarcoefs=regvarcoefs, hegycoefs=hegycoefs, lagsorder=selP, lagcoefs=lagcoefs,res=residuals(lmhegy), lmhegy=lmhegyout, stats=EtFst)
   return(hegystat)
 }
 
@@ -184,7 +183,7 @@ SeasComponent <- function(wts, type)
   }
   
   if(type == "trgCycle"){        
-    # Granger & Newbold (1986)
+# Granger & Newbold (1986)
     qq  <- s/2
     VFE <- matrix(nrow=N, ncol=(s-1))
     

@@ -1,56 +1,49 @@
 \name{r_est}
 \alias{r_est}
-%- Also NEED an '\alias' for EACH other topic documented here.
+
 \title{A subroutine for model()
-%%  ~~function to do ... ~~
+
 }
-\description{This function is a subroutine for model(), estimation procedure
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+\description{This function is a subroutine for model(), estimation procedure.
+
 }
 \usage{
 r_est(y, r, trim, tt, qq1, qn1, qn, n, cf, xt, ct, thresh)
 }
-%- maybe also 'usage' for other objects documented here.
+
 \arguments{
-  \item{y}{vector of dependent variable
-%%     ~~Describe \code{y} here ~~
+  \item{y}{vector of dependent variable.
+
 }
 
-  \item{r}{numer of regime 
-%%     ~~Describe \code{r} here ~~
+  \item{r}{numer of regime. 
+
 }
 
-  \item{trim}{value of trimmed percentage
-%%     ~~Describe \code{trim} here ~~
+  \item{trim}{value of trimmed percentage.
+
 }
 
-  \item{tt}{length of time period
-%%     ~~Describe \code{tt} here ~~
+  \item{tt}{length of time period.
+
 }
 
-  \item{qq1}{parameter defined by as.matrix(unique(thresh)[floor(sq*nrow(as.matrix(sort(unique(thresh)))))])
-%%     ~~Describe \code{qq1} here ~~
+  \item{qq1}{parameter defined by as.matrix(unique(thresh)[floor(sq*nrow(as.matrix(sort(unique(thresh)))))]).
+
 }
-  \item{qn1}{as defined by nrow(qq1)
-%%     ~~Describe \code{qn1} here ~~
+  \item{qn1}{as defined by nrow(qq1).
 }
-  \item{qn}{number of quantiles to examine
-%%     ~~Describe \code{qn} here ~~
+  \item{qn}{number of quantiles to examine.
 }
-  \item{n}{parameter of cross-section units
-%%     ~~Describe \code{n} here ~~
+  \item{n}{parameter of cross-section units.
 }
-  \item{cf}{special declaration, e.g. lag()
-%%     ~~Describe \code{cf} here ~~
+  \item{cf}{special declaration, e.g. lag().
 }
-  \item{xt}{regime independent variables
-%%     ~~Describe \code{xt} here ~~
+  \item{xt}{regime independent variables.
 }
-  \item{ct}{trace of regime dependent variables
-%%     ~~Describe \code{ct} here ~~
+  \item{ct}{trace of regime dependent variables.
 }
-  \item{thresh}{threshold variable
-%%     ~~Describe \code{thresh} here ~~
+  \item{thresh}{threshold variable.
 }
 
 
@@ -59,5 +52,4 @@ r_est(y, r, trim, tt, qq1, qn1, qn, n, cf, xt, ct, thresh)
 \references{Hanse B. E. (1999) Threshold effects in non-dynamic panels: Estimation, testing and inference. Journal of Econometrics,93, 345-368.
 
 Original code from Dr. Hansen (http://www.ssc.wisc.edu/~bhansen/).
-%% ~put references to the literature/web site here ~
 }

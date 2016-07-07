@@ -1,60 +1,67 @@
 \name{ptm}
 \alias{ptm}
-%- Also NEED an '\alias' for EACH other topic documented here.
+
 \title{Threshold Specification of panel data
-%%  ~~function to do ... ~~ 
+
 }
-\description{panel threshold specification
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+\description{
+
+A generalized specification for estimating panel threshold model.
+
 }
 \usage{
-ptm(dep, ind1, ind2, d, bootn, trimn, qn, conf_lev, max_lag, t, n)
+ptm(dep, ind1, ind2, d, bootn, trimn, qn, conf_lev, t, n)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{dep}{dependent variable
-%%     ~~Describe \code{qn} here ~~
+  \item{dep}{
+  Dependent variable
+
 }
-  \item{ind1}{regime dependent independent variables
-%%     ~~Describe \code{ind1} here ~~
+  \item{ind1}{
+  Independent variables: regime dependent 
 }
-  \item{ind2}{ regime independent independent variables
-%%     ~~Describe \code{ind2} here~~
+  \item{ind2}{
+ Independent variables:regime independent
+
 }
-  \item{d}{threshold variable
-%%     ~~Describe \code{d} here~~
+  \item{d}{
+  Threshold variable
 }
-  \item{bootn}{vector of bootstrap repetition
-%%     ~~Describe \code{bootn} here~~
+  \item{bootn}{
+  
+  Vector of bootstrap repetition
+
 }
-  \item{trimn}{vector of trimmed percentage
-%%     ~~Describe \code{trimn} here~~
+  \item{trimn}{
+  Vector of trimmed percentage
+
 }
-  \item{qn}{number of quantiles to examine
-%%     ~~Describe \code{qn} here~~
+  \item{qn}{
+  Number of quantiles to examine
+
 }
-  \item{conf_lev}{confidence level
-%%     ~~Describe \code{conf_lev} here~~
+  \item{conf_lev}{
+  Confidence level
+
 }
-  \item{max_lag}{maximum number of lags
-%%     ~~Describe \code{max_lag} here~~
+
+  \item{t}{
+  Length of time period
+
 }
-  \item{t}{length of time period
-%%     ~~Describe \code{t} here~~
-}
-  \item{n}{number of cross-section units
-%%     ~~Describe \code{n} here~~
+  \item{n}{
+  Number of cross-section units
+
 }
 }
-\details{This code fits only balanced panel data. It generalizes the simple code of Dr. Hansen (http://www.ssc.wisc.edu/~bhansen/), allowing multiple (more-than-one) regime-dependent (ind1) variables. We generalize the original code to better fit general need of threshold modeling in panel data. 
-bootn and trimn are vector of 3 by 1, indicating numbers of three corresponding regimes. 
-%%  ~~ If necessary, more details than the description above ~~
+\details{This code fits only balanced panel data. It generalizes the simple code of Dr. Hansen (http://www.ssc.wisc.edu/~bhansen/), allowing multiple (more-than-one) regime-dependent (ind1) variables. We generalize the original code to better fit general need of threshold modeling in panel data. \cr
+bootn and trimn are vector of 3 by 1, indicating numbers of three corresponding regimes.\cr
+This version corrects a slight error incurred by argument max_lag, which is used by Hansen to arrange investment data via lags. In this package, users manipulate data to fit personal research to ptm(), hence this argument is omitted lest should degree of freedom will suffer a loss of N.
 }
 
 \references{Hanse B. E. (1999) Threshold effects in non-dynamic panels: Estimation, testing and inference. Journal of Econometrics,93, 345-368.
-%% ~put references to the literature/web site here ~
 }
-\author{Prof. Tsung-wu Ho, Dept of Finance, Shih Hsin University, Taiwan, Taipei
+\author{Ho Tsungwu <tsungwu@cc.shu.edu.tw>
 }
 
 
@@ -77,9 +84,8 @@ bootn and trimn are vector of 3 by 1, indicating numbers of three corresponding 
 
 #qn<-400
 #conf_lev<-0.95
-#max_lag <- 1
 
-#ptm(dep,ind1,ind2,d,bootn,trimn,qn,conf_lev,max_lag,t,n)
+#ptm(dep,ind1,ind2,d,bootn,trimn,qn,conf_lev,t,n)
 
 # In the output, the Regime-dependent Coefficients matrix
 # is, from top to bottom, regime-wise.

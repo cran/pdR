@@ -9,7 +9,6 @@ Selection of lags.
 \usage{
 selPsignf(lmdet, cvref = 1.65, Pmax = NULL)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{lmdet}{
 Object of lm()
