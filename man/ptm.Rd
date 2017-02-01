@@ -85,7 +85,10 @@ This version corrects a slight error incurred by argument max_lag, which is used
 #qn<-400
 #conf_lev<-0.95
 
-#ptm(dep,ind1,ind2,d,bootn,trimn,qn,conf_lev,t,n)
+#Output=ptm(dep,ind1,ind2,d,bootn,trimn,qn,conf_lev,t,n)
+#Output[[1]] #Formatted output of 1st threshold, 2 regimes
+#Output[[2]] #Formatted output of 2nd threshold, 3 regimes
+#Output[[3]] #Formatted output of 3rd threshold, 4 regimes
 
 # In the output, the Regime-dependent Coefficients matrix
 # is, from top to bottom, regime-wise.

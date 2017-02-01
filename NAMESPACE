@@ -1,6 +1,6 @@
 exportPattern("^[[:alpha:]]+")
 import(plm,tcltk)
-importFrom("grDevices", "dev.new")
+#importFrom("grDevices", "dev.new")
 importFrom("graphics", "abline", "grid", "legend", "lines","par", "plot.new", "plot", "title")
 importFrom("stats", "na.omit","ppoints", "time", "var")
 importFrom("stats","AIC","anova","approx","BIC","coef","embed","lm","pnorm","update")
