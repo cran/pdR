@@ -29,7 +29,7 @@ A T by k dataframe returns. If you need 2 lags, you have to specify k=3, then it
 Javier Lopez-de-Lacalle in https://github.com/cran/uroot/blob/master/R/hegy.R 
 }
 \author{
-Ho Tsungwu <tsungwu@cc.shu.edu.tw>, modifed from Javier Lopez-de-Lacalle
+Ho Tsung-wu <tsungwu@ntnu.edu.tw>, modifed from Javier Lopez-de-Lacalle
 }
 \examples{
 data(inf_Q)

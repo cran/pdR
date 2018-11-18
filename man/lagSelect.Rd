@@ -19,7 +19,8 @@ Information criteria "AIC" and "BIC" use the R built-in functions.
 It returns an integer, indicating the optimal lags
 }
 
-\author{Ho Tsungwu <tsungwu@cc.shu.edu.tw>
+\author{
+Ho Tsung-wu <tsungwu@ntnu.edu.tw>, College of Management, National Taiwan Normal University.
 }
 
 \examples{

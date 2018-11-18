@@ -57,7 +57,7 @@ GUI output button.
 }
 
 \author{
-Ho Tsungwu <tsungwu@cc.shu.edu.tw>
+Ho Tsung-wu <tsungwu@ntnu.edu.tw>, College of Management, National Taiwan Normal University.
 }
 
 

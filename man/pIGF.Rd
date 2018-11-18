@@ -46,7 +46,7 @@ pIGF(datamat, maxp, ic, spec)
 Chang,Y.(2002) Nonlinear IV Unit Root Tests in Panels with Cross-Sectional Dependency. Journal of Econometrics, 110, 261-292.
 }
 
-\author{Ho Tsungwu <tsungwu@cc.shu.edu.tw>}
+\author{Ho Tsung-wu <tsungwu@ntnu.edu.tw>, College of Management, National Taiwan Normal University.}
 
 \examples{
 data(inf19)

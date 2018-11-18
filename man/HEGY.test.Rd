@@ -42,7 +42,7 @@ Hylleberg, S., Engle, R.F., Granger, C.W.J., and Yoo, B.S.(1990) Seasonal integr
 Javier Lopez-de-Lacalle in https://github.com/cran/uroot/blob/master/R/hegy.R
 }
 \author{
-Ho Tsungwu <tsungwu@cc.shu.edu.tw>, modifed from Javier Lopez-de-Lacalle
+Ho Tsung-wu <tsungwu@ntnu.edu.tw>, modifed from Javier Lopez-de-Lacalle
 }
 
 \examples{

@@ -46,7 +46,7 @@ Chang, Y. (2002) Nonlinear IV Unit Root Tests in Panels with Cross-Sectional Dep
 
 }
 \author{
-Ho Tsungwu <tsungwu@cc.shu.edu.tw>
+Ho Tsung-wu <tsungwu@ntnu.edu.tw>, College of Management, National Taiwan Normal University.
 }
 
 \examples{

@@ -1,7 +1,7 @@
 \name{ptm}
 \alias{ptm}
 
-\title{Threshold Specification of panel data
+\title{Threshold specification of panel data
 
 }
 \description{
@@ -59,9 +59,9 @@ bootn and trimn are vector of 3 by 1, indicating numbers of three corresponding 
 This version corrects a slight error incurred by argument max_lag, which is used by Hansen to arrange investment data via lags. In this package, users manipulate data to fit personal research to ptm(), hence this argument is omitted lest should degree of freedom will suffer a loss of N.
 }
 
-\references{Hanse B. E. (1999) Threshold effects in non-dynamic panels: Estimation, testing and inference. Journal of Econometrics,93, 345-368.
+\references{Hansen B. E. (1999) Threshold effects in non-dynamic panels: Estimation, testing and inference. Journal of Econometrics,93, 345-368.
 }
-\author{Ho Tsungwu <tsungwu@cc.shu.edu.tw>
+\author{Ho Tsung-wu <tsungwu@ntnu.edu.tw>, College of Management, National Taiwan Normal University.
 }
 
 

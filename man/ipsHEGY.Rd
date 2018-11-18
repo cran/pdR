@@ -57,7 +57,8 @@ Otero, J., Smith, J., and Giulietti, M. (2007) Testing for seasonal unit roots i
 Pesaran M. Hashem (2007) A simple panel unit root test in the presence of cross-section dependence.  Journal of Applied Econometrics, 22, 265-312.
 }
 
-\author{Ho Tsungwu <tsungwu@cc.shu.edu.tw>
+\author{
+Ho Tsung-wu <tsungwu@ntnu.edu.tw>, College of Management, National Taiwan Normal University.
 }
 
 

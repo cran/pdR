@@ -30,7 +30,7 @@ This function returns the lag orders.
 Javier Lopez-de-Lacalle in https://github.com/cran/uroot/blob/master/R/hegy.R 
 }
 \author{
-Ho Tsungwu <tsungwu@cc.shu.edu.tw>, modifed from Javier Lopez-de-Lacalle
+Ho Tsung-wu <tsungwu@ntnu.edu.tw>, modifed from Javier Lopez-de-Lacalle
 }
 
 \examples{

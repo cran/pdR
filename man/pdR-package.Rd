@@ -32,6 +32,6 @@ Pesaran M. Hashem (2007) A simple panel unit root test in the presence of cross-
 }
 
 \author{
-Ho Tsung-wu <tsungwu@cc.shu.edu.tw>\cr
-Maintainer: Ho Tsung-wu <tsungwu@cc.shu.edu.tw>
+Ho Tsung-wu <tsungwu@ntnu.edu.tw>, College of Management, National Taiwan Normal University.\cr
+Maintainer: Ho Tsung-wu <tsungwu@ntnu.edu.tw>
 }
