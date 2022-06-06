@@ -15,36 +15,36 @@ SMPLSplit_example(data,dep,indep,th1,th2,trim_per,rep,plot)
 }
 \arguments{
   \item{data}{
-  The data in either data.frame or matrix  
+  the data in either data.frame or matrix. 
 
 }
 
   \item{dep}{
-  The number of culumn of dependent variable
+  the name of dependent variable.
 
 }
   \item{indep}{
-  The number of culumns of  regime dependent independent variables: 
+  the name(s) of independent variable(s) 
 }
 
   \item{th1}{
-  The first threshold variable
+  the first threshold variable.
 }
   \item{th2}{
   
-  The second threshold variable
+  the second threshold variable.
 
 }
   \item{trim_per}{
-  Trimmed percentage
+  trimmed percentage.
 
 }
   \item{rep}{
-  Number of bootstrap repetition
+  nNumber of bootstrap repetitions.
 
 }
   \item{plot}{
-  =1, plot; =0, do not plot
+  =1, plot; =0, do not plot.
 }
 
 }
@@ -63,11 +63,11 @@ SMPLSplit_example(data,dep,indep,th1,th2,trim_per,rep,plot)
 data("dur_john")
 #rep <- 500
 #trim_per <- 0.15
-#dep <- 1
-#indep <- c(2,3,4,5)
-#th1 <- 6
-#th2 <- 7
-#OUT=SMPLSplit_example(data=dur_john,dep,indep,th1,th2,trim_per,rep,plot=1)
+#dep <- "gdpGrowth"
+#indep <- colnames(dur_john)[c(2,3,4,5)]
+#th1 <- "GDP60"
+#th2 <- "Literacy"
+#OUT=SMPLSplit_est(data=dur_john,dep,indep,th=th1,plot=0,h=1,nonpar=2)
 #OUT$TEST
 #OUT$Hypothesis
 #OUT$Threshold

@@ -17,36 +17,47 @@ SMPLSplit_het(data,dep,indep,th,trim_per,rep,plot)
 }
 \arguments{
   \item{data}{
-  The data in either data.frame or matrix  
+  the data in either data.frame or matrix  
 
 }
 
-  \item{dep}{
-  The number of culumn of dependent variable
+    \item{dep}{
+  the name of dependent variable.
 
 }
   \item{indep}{
-  The number of culumns of  regime dependent independent variables: 
+  the name(s) of independent variable(s). 
 }
 
   \item{th}{
 
-  The threshold variable
+  the name of threshold variable.
 
 }
   \item{trim_per}{
-  Trimmed percentage
+  trimmed percentage.
 
 }
   \item{rep}{
-  Number of bootstrap repetition
+  number of bootstrap repetition.
 
 }
   \item{plot}{
-  =1, plot; =0, do not plot
+  =1, plot; =0, do not plot.
 }
 
 }
+
+\value{
+
+\item{fstat}{LM-test for no threshold.}
+\item{pvalue}{bootstrap P-Value.}
+
+}
+
+
+
+
 \details{This code tests for the presence of threshold. It generalizes the simple code of Dr. Hansen, allowing Heteroskedastic Errors (White Corrected). }
 
 \note{Original code offered by Dr. B. E.Hansen (http://www.ssc.wisc.edu/~bhansen/). 

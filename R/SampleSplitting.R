@@ -1,90 +1,93 @@
 SMPLSplit_example <- function (data,dep,indep,th1,th2,trim_per,rep,plot) {
-  h=1
-  dat=as.matrix(data)
-  NAMES=colnames(dat)
-  cat("\n")
+  data=as.matrix(data)
+#  NAMES=colnames(data)
   cat("\n")
   cat("Level 1: Testing for a First Sample Split", "\n")  
   cat("\n")
-  cat("<1-1> Testing for a First Sample Split, Using",NAMES[th1], "\n")
-  out1 <- SMPLSplit_het(dat,dep,indep,th=th1,trim_per,rep,plot);
+  cat("<1-1> Testing for a First Sample Split, Using",th1, "\n")
+  out1 <- SMPLSplit_het(data,dep,indep,th=th1,trim_per,rep,plot);
 
-  cat("<1-2> Testing for a First Sample Split, Using",NAMES[th2], "\n")
+  cat("<1-2> Testing for a First Sample Split, Using",th2, "\n")
 
-  out2 <- SMPLSplit_het(dat,dep,indep,th=th2,trim_per,rep,plot);
+  out2 <- SMPLSplit_het(data,dep,indep,th=th2,trim_per,rep,plot);
   
-  cat("=== Estimate First Sample Split, Using",NAMES[th1],"as Threshold ===","\n")
+  cat("=== Estimate First Sample Split, Using",th1,"as Threshold ===","\n")
 
-  qhat1 <- SMPLSplit_est(dat,dep,indep,th=th1,plot)
+  Q1 <- SMPLSplit_est(data,dep,indep,th=th1,plot)
+  qhat1=Q1$threshold
   cat("####################################################","\n")
   cat("####################################################","\n")
   cat("We check output above to determine which way to go.", "\n")  
-  cat("Because regime '", NAMES[th1], ">", qhat1,"' has more obs, Level 2 continues", "\n")  
+  cat("Because regime '", th1, ">", qhat1,"' has more obs, Level 2 continues", "\n")  
   cat("#################################################################","\n")
   cat("#################################################################","\n")
   cat("\n")
   cat("Level 2", "\n")
-  cat("Sub-Sample", NAMES[th1], " >", qhat1, "\n")
+  cat("Sub-Sample", th1, " >", qhat1, "\n")
   
-  k <- ncol(dat)
-  indx <- as.matrix((dat[,th1])%*%matrix(c(1),1,k))
-  indx <- as.matrix((dat[,th1] > qhat1)%*%matrix(c(1),1,k))
-  dati <- as.matrix(dat[indx>0])
+  k <- ncol(data)
+  indx <- as.matrix((data[,th1])%*%matrix(c(1),1,k))
+  indx <- as.matrix((data[,th1] > qhat1)%*%matrix(c(1),1,k))
+  dati <- as.matrix(data[indx>0])
   dati <- matrix(dati,nrow=nrow(dati)/k,ncol=k)
-  colnames(dati)=colnames(dat)
+  colnames(dati)=colnames(data)
   cat("\n")
-  cat("<2-1> Testing for a Second Sample Split, Using",NAMES[th1], "\n")
+  cat("<2-1> Testing for a Second Sample Split, Using",th1, "\n")
   cat("\n")
   out3 <- SMPLSplit_het(dati,dep,indep,th=th1,trim_per,rep,plot)
   cat("\n")
 
-  cat("<2-2> Testing for a Second Sample Split, Using",NAMES[th2], "\n")
+  cat("<2-2> Testing for a Second Sample Split, Using",th2, "\n")
   cat("\n")
   out4 <- SMPLSplit_het(dati,dep,indep,th=th2,trim_per,rep,plot)
   cat("\n")
   cat("\n")
   
-  cat("=== Estimate Second Sample Split, Using",NAMES[th2],"as Threshold ===","\n")
+  cat("=== Estimate Second Sample Split, Using",th2,"as Threshold ===","\n")
 
-  qhat2 <- SMPLSplit_est(dati,dep,indep,th=th2,plot)
-
+  Q2 <- SMPLSplit_est(dati,dep,indep,th=th2,plot)
+  qhat2=Q2$threshold
   cat("####################################################","\n")
   cat("####################################################","\n")
   cat("We check outputs above to determine which way to go.", "\n")  
-  cat("Because both sub-regimes by",NAMES[th2], "have similar obs, Level 3 continues", "\n")  
+  cat("Because both sub-regimes by",th2, "have similar obs, Level 3 continues", "\n")  
   cat("########################################################################","\n")
   cat("########################################################################","\n")
   cat("\n")
   
   #=== Third Level ===#
   cat("Level 3", "\n")
-  cat("3A: Given", NAMES[th1], ">", qhat1,", Sub-Sample", NAMES[th2], "<=", qhat2, "\n")
-
-  i1 <- ((dat[,th2] <= qhat2)%*%matrix(c(1),1,k))*indx
-  i2 <- ((dat[,th2] >  qhat2)%*%matrix(c(1),1,k))*indx
-  dat1 <- as.matrix(dat[i1>0])
+  cat("3A: Given", th1, ">", qhat1,", Sub-Sample", th2, "<=", qhat2, "\n")
+  cat("\n")
+  i1 <- ((data[,th2] <= qhat2)%*%matrix(c(1),1,k))*indx
+  i2 <- ((data[,th2] >  qhat2)%*%matrix(c(1),1,k))*indx
+  dat1 <- as.matrix(data[i1>0])
   dat1 <- matrix(dat1,nrow=nrow(dat1)/k,ncol=k)
-  dat2 <- as.matrix(dat[i2>0])
+  dat2 <- as.matrix(data[i2>0])
   dat2 <- matrix(dat2,nrow=nrow(dat2)/k,ncol=k)
-  colnames(dat1)=colnames(dat)
-  colnames(dat2)=colnames(dat)
+  colnames(dat1)=colnames(data)
+  colnames(dat2)=colnames(data)
+#  cat("\n")
+  cat("<3A-1> Testing for a Third Sample Split, Using",th1, "\n")
   cat("\n")
-  cat("<3A-1> Testing for a Third Sample Split, Using",NAMES[th1], "\n")
   out5 <- SMPLSplit_het(dat1,dep,indep,th=th1,trim_per,rep,plot)
+#  cat("\n")
+  cat("<3A-2> Testing for a Third Sample Split, Using",th2, "\n")
   cat("\n")
-  cat("<3A-2> Testing for a Third Sample Split, Using",NAMES[th2], "\n")
   out6 <- SMPLSplit_het(dat1,dep,indep,th=th2,trim_per,rep,plot)
-  cat("\n")
-
-  cat("3B: Given", NAMES[th1], ">", qhat1,", Sub-Sample", NAMES[th2], ">", qhat2, "\n")
-  cat("\n")
-  cat("<3B-1> Testing for a Third Sample Split, Using",NAMES[th1], "\n")
-  out7 <- SMPLSplit_het(dat2,dep,indep,th=th1,trim_per,rep,plot)
-  cat("\n")
+#  cat("\n")
   
-  cat("<3B-2> Testing for a Third Sample Split, Using",NAMES[th2], "\n")
+  cat("3B: Given", th1, ">", qhat1,", Sub-Sample", th2, ">", qhat2, "\n")
+  cat("\n")
+  cat("<3B-1> Testing for a Third Sample Split, Using",th1, "\n")
+  cat("\n")
+  out7 <- SMPLSplit_het(dat2,dep,indep,th=th1,trim_per,rep,plot)
+#  cat("\n")
+  
+  cat("<3B-2> Testing for a Third Sample Split, Using",th2, "\n")
+  cat("\n")
   out8 <- SMPLSplit_het(dat2,dep,indep,th=th2,trim_per,rep,plot)
-
+  cat("\n")
   cat("####################################################","\n")
   cat("####################################################","\n")
   cat("Because, by the Bootstrap P-Value, the LM tests of both sub-regimes do not have", "\n")  
@@ -92,17 +95,15 @@ SMPLSplit_example <- function (data,dep,indep,th1,th2,trim_per,rep,plot) {
   cat("##########################################################################################","\n")
   cat("##########################################################################################","\n")
   
-  
-  
-  
-  h1=paste("Testing for a First Sample Split, Using",NAMES[th1])
-  h2=paste("Testing for a First Sample Split, Using",NAMES[th2])
-  h3=paste("Testing for a Second Sample Split, Using",NAMES[th1])
-  h4=paste("Testing for a Second Sample Split, Using",NAMES[th2])
-  h5=paste("Testing for a Third Sample Split, Using",NAMES[th1])
-  h6=paste("Testing for a Third Sample Split, Using",NAMES[th2])
-  h7=paste("Testing for a Third Sample Split, Using",NAMES[th1])
-  h8=paste("Testing for a Third Sample Split, Using",NAMES[th2])
+
+  h1=paste("Testing for a First Sample Split, Using",th1)
+  h2=paste("Testing for a First Sample Split, Using",th2)
+  h3=paste("Testing for a Second Sample Split, Using",th1)
+  h4=paste("Testing for a Second Sample Split, Using",th2)
+  h5=paste("Testing for a Third Sample Split, Using",th1)
+  h6=paste("Testing for a Third Sample Split, Using",th2)
+  h7=paste("Testing for a Third Sample Split, Using",th1)
+  h8=paste("Testing for a Third Sample Split, Using",th2)
   
   Hypothesis=c(rbind(h1,h2,h3,h4,h5,h6,h7,h8))
   TEST=data.frame(test1=out1,test2=out2,test3=out3,test4=out4,test5=out5,test6=out6,test7=out7,test8=out8)
@@ -113,10 +114,14 @@ SMPLSplit_example <- function (data,dep,indep,th1,th2,trim_per,rep,plot) {
 
 
 
-SMPLSplit_est <- function(dat,dep,indep,th,plot){
+
+SMPLSplit_est <- function(data,dep,indep,th,plot,h=1,nonpar=2){
+#  h=1
+  dep=which(colnames(data) == dep)
+  indep=which(colnames(data) %in% indep)
+  
   qi=th
-  h=1
-  names=as.matrix(colnames(dat))
+  names=as.matrix(colnames(data))
   yi=dep
   xi=as.matrix(indep)
   # Control Parameters, can be modified if desired  #
@@ -124,7 +129,7 @@ SMPLSplit_est <- function(dat,dep,indep,th,plot){
   conf1 <- .95  # Confidence Level for Confidence Regions
   conf2 <- .8   # Confidence Level for first step of two-step
   # Confidence Regions for regression parameters
-  nonpar <- 2   # Indicator for non-parametric method used to
+#  nonpar <- 2   # Indicator for non-parametric method used to
   # estimate nuisance scale in the presence of
   # heteroskedasticity (only relevant if h=1).
   # Set nonpar=1 to estimate regressions using
@@ -148,20 +153,21 @@ SMPLSplit_est <- function(dat,dep,indep,th,plot){
         "The program will employ the quadratic regression method", "\n", "\n")
   }
   
-  n <- nrow(dat)
-  q <- dat[,qi]
+  n <- nrow(data)
+  q <- data[,qi]
   qs <- order(q)
   q <- q[qs]
-  y <- as.matrix(dat[qs,yi])
-  x <- cbind(matrix(c(1),n,1),dat[qs,xi])
+  y <- as.matrix(data[qs,yi])
+  x <- cbind(matrix(c(1),n,1),data[qs,xi])
   k <- ncol(x)
   yname <- names[yi]
-  qname <- names[qi]
+  qname <- qi#names[qi]
   xname <- rbind("Constant",as.matrix(names[xi]))
   
   mi <- solve(t(x)%*%x)
   beta <- mi%*%(t(x)%*%y)
   e <- y-x%*%beta
+  
   ee <- t(e)%*%e
   sig <- ee/(n-k)
   xe <- x*(e%*%matrix(c(1),1,k))
@@ -211,12 +217,14 @@ SMPLSplit_est <- function(dat,dep,indep,th,plot){
   x2 <- as.matrix(x[i2%*%matrix(c(1),1,k)>0])
   x2 <- matrix(x2,nrow=nrow(x2)/k,ncol=k)
   y2 <- as.matrix(y[i2])
+ 
   mi1 <- solve(t(x1)%*%x1)
   mi2 <- solve(t(x2)%*%x2)
   beta1 <- mi1%*%(t(x1)%*%y1)
   beta2 <- mi2%*%(t(x2)%*%y2)
   e1 <- y1 - x1%*%beta1
   e2 <- y2 - x2%*%beta2
+
   ej <- rbind(e1,e2)
   n1 <- nrow(y1)
   n2 <- nrow(y2)
@@ -321,7 +329,7 @@ SMPLSplit_est <- function(dat,dep,indep,th,plot){
         e2 <- y2 - x2%*%b2
         if (h==0){
           ser2 <- as.matrix(sqrt(diag(mi2)*(t(e2)%*%e2)/(nrow(y2)-k)))
-        }else{
+        } else {
           xe2 <- x2*(e2%*%matrix(c(1),1,k))
           ser2 <- as.matrix(sqrt(diag(mi2%*%t(xe2)%*%xe2%*%mi2)))
         }
@@ -341,107 +349,127 @@ SMPLSplit_est <- function(dat,dep,indep,th,plot){
     out <- 1-pchisq(te,ncol(x))
     out
   }
+  
+  
+  
   cat("\n")  
   cat("1. Global OLS Estimation", "\n")
 #  cat("\n")
   cat("Dependent Variable:     ", yname, "\n")
   if (h==1) cat("Heteroskedasticity Correction Used", "\n")
   if (h==0) cat("OLS Standard Errors Reported", "\n")
-#  cat("\n")
-  cat("Variable ", "    ", "Estimate  ", "    ", "St Error", "\n")
-  cat("----------------------------------------", "\n")
+cat("\n")
   tbeta <- format(beta, nsmall=4)
   tse <- format(se, nsmall=4)
-  for (j in 1:k){cat(xname[j], "    ", tbeta[j], "    ", tse[j], "\n")}
-  cat("\n")
-  cat("Observations:                      ", n, "\n")
-  cat("Degrees of Freedom:                ", (n-k), "\n")
-  cat("Sum of Squared Errors:             ", ee, "\n")
-  cat("Residual Variance:                 ", sig, "\n")
-  cat("R-squared:                         ", r_2, "\n")
-  cat("Heteroskedasticity Test (P-Value): ", het_test(e,x), "\n")
+
+  estimates0=data.frame(round(as.numeric(tbeta),4),
+                        round(as.numeric(tse),4),
+                        round(as.numeric(tbeta)/as.numeric(tse),4),
+                        format(round(1-pnorm(abs(as.numeric(tbeta)/as.numeric(tse))),6),scientific=TRUE))
+  
+  colnames(estimates0)=c("Estimate","Std. Error","t value","Pr(>|t|)")
+  rownames(estimates0)=xname
+  print(estimates0)
+  
 #  cat("\n")
-#  cat("\n")
+  info0=as.matrix(c(n,n-k,ee,sig,r_2,het_test(e,x)))
+rownames(info0)=c("Observations:",
+                   "Degrees of Freedom:",
+                   "Sum of Squared Errors:",
+                   "Residual Variance:",
+                   "R-squared:",
+                   "Heteroskedasticity Test (P-Value):") 
+colnames(info0)="Values"
+cat("\n")
+print(info0)
   cat("****************************************************", "\n")
-  cat("\n")
-#  cat("\n")
-  cat("2. Threshold Estimation", "\n")
-#  cat("\n")
-  cat("Threshold Variable:                ", qname, "\n")
-  cat("Threshold Estimate:                ", qhat, "\n")
   tqhat1 <- format(qhat1, nsmall=4)
   tqhat2 <- format(qhat2, nsmall=4)
   tit <- paste(c("["),tqhat1,", ",tqhat2,c("]"),sep="")
-  cat(conf1, "Confidence Interval:          ", tit, "\n")
-  cat("Sum of Squared Errors:             ", (ee1+ee2), "\n")
-  cat("Residual Variance:                 ", sig_jt, "\n")
-  cat("Joint R-squared:                   ", r2_joint, "\n")
-  cat("Heteroskedasticity Test (P-Value): ", het_test(ej,x), "\n")
-#  cat("\n")
-#  cat("\n")
-  cat("****************************************************", "\n")
-#  cat("\n")
+  
+  cat("2. Threshold Estimation", "\n")
+  infojt=as.data.frame(c(qname,qhat,tit,round((ee1+ee2),4),
+                         round(sig_jt,4),round(r2_joint,4),
+                         round(het_test(ej,x),4)))
+  rownames(infojt)=c("Threshold Variable:",
+                    "Threshold Estimate:",
+                    "Confidence Interval",
+                    "Sum of Squared Errors:",
+                    "Residual Variance:",
+                    "Joint R-squared:",
+                    "Heteroskedasticity Test (P-Value):") 
+  colnames(infojt)="Values"
   cat("\n")
-  tit <- paste(qname,"<=",format(qhat,nsmall=6),sep="")
+  print(infojt)
+
+  cat("****************************************************", "\n")
+  cat("\n")
+  tit <- paste(qname,"<=",format(qhat,nsmall=4),sep="")
   cat("     Regime 1:", tit, "\n")
   cat("\n")
   cat("Parameter Estimates", "\n")
-  cat("Variable ", "    ", "Estimate  ", "    ", "St Error", "\n")
-  cat("----------------------------------------", "\n")
   tbeta1 <- format(beta1, nsmall=4)
   tse1 <- format(se1, nsmall=4)
-  for (j in 1:k){cat(xname[j], "    ", tbeta1[j], "    ", tse1[j], "\n")}
-  cat("----------------------------------------", "\n")
-  cat(conf1, "Confidence Regions for Parameters", "\n")
-  cat("Variable ", "    ", "Low         ", "    ", "High", "\n")
-  cat("----------------------------------------", "\n")
-  
+
   tbeta1l <- format(beta1l, nsmall=4)
   tbeta1u <- format(beta1u, nsmall=4)
-  for (j in 1:k){cat(xname[j], "    ", tbeta1l[j], "    ", tbeta1u[j], "\n")}
+  estimates1=data.frame(round(as.numeric(tbeta1),4),
+                        round(as.numeric(tse1),4),
+                        round(as.numeric(tbeta1)/as.numeric(tse1),4),
+                        format(round(1-pnorm(abs(as.numeric(tbeta1)/as.numeric(tse1))),6),scientific=TRUE),
+                        round(as.numeric(tbeta1l),4),
+                        round(as.numeric(tbeta1u),4))
+  
+  colnames(estimates1)=c("Estimate","Std. Error","t value","Pr(>|t|)","Low","High")
+  rownames(estimates1)=xname
+  print(estimates1)
+
   cat("\n")
-  cat("Observations:                      ", n1, "\n")
-  cat("Degrees of Freedom:                ", (n1-k), "\n")
-  cat("Sum of Squared Errors:             ", ee1, "\n")
-  cat("Residual Variance:                 ", sig1, "\n")
-  cat("R-squared:                         ", r2_1, "\n")
-#  cat("\n")
-  #print(data.frame(Variable=xname,Estimate=tbeta1,StdErr=tse1))
-#  cat("\n")
-  #print(data.frame(Variable=xname,Low=tbeta1l,High=tbeta1u))
-#  cat("\n")
-#  cat("\n")
-  cat("****************************************************", "\n")
+  info1=as.matrix(c(n1,n1-k,ee1,sig1,r2_1))
+  rownames(info1)=c("Observations:",
+                    "Degrees of Freedom:",
+                    "Sum of Squared Errors:",
+                    "Residual Variance:",
+                    "R-squared:") 
+  colnames(info1)="Values"
+  print(info1)
+  
+cat("****************************************************", "\n")
   cat("\n")
-#  cat("\n")
-  tit <- paste(qname,">",format(qhat,nsmall=6),sep="")
+  tit <- paste(qname,">",format(qhat,nsmall=4),sep="")
   cat("     Regime 2:", tit, "\n")
   cat("\n")
   cat("Parameter Estimates", "\n")
-  cat("Variable ", "    ", "Estimate  ", "    ", "St Error", "\n")
-  cat("----------------------------------------", "\n")
   tbeta2 <- format(beta2, nsmall=4)
   tse2 <- format(se2, nsmall=4)
-  for (j in 1:k){cat(xname[j], "    ", tbeta2[j], "    ", tse2[j], "\n")}
-  cat("----------------------------------------", "\n")
+
   cat(conf1, "Confidence Regions for Parameters", "\n")
-  cat("Variable ", "    ", "Low         ", "    ", "High", "\n")
+
   cat("----------------------------------------", "\n")
   tbeta2l <- format(beta2l, nsmall=4)
   tbeta2u <- format(beta2u, nsmall=4)
+
+  estimates2=data.frame(round(as.numeric(tbeta2),4),
+                        round(as.numeric(tse2),4),
+                        round(as.numeric(tbeta2)/as.numeric(tse2),4),
+                        format(round(1-pnorm(abs(as.numeric(tbeta2)/as.numeric(tse2))),6),scientific=TRUE),
+                        round(as.numeric(tbeta2l),4),
+                        round(as.numeric(tbeta2u),4))
   
-  for (j in 1:k){cat(xname[j], "    ", tbeta2l[j], "    ", tbeta2u[j], "\n")}
+  colnames(estimates2)=c("Estimate","Std. Error","t value","Pr(>|t|)","Low","High")
+  rownames(estimates2)=xname
+  print(estimates2)
+
+  info2=as.matrix(c(n2,n2-k,ee2,sig2,r2_2))
+  rownames(info2)=c("Observations:",
+                    "Degrees of Freedom:",
+                    "Sum of Squared Errors:",
+                    "Residual Variance:",
+                    "R-squared:") 
+  colnames(info2)="Values"
   cat("\n")
-  cat("Observations:                      ", n2, "\n")
-  cat("Degrees of Freedom:                ", (n2-k), "\n")
-  cat("Sum of Squared Errors:             ", ee2, "\n")
-  cat("Residual Variance:                 ", sig2, "\n")
-  cat("R-squared:                         ", r2_2, "\n")
-  cat("\n")
-  #print(data.frame(Variable=xname,Estimate=tbeta2,StdErr=tse2))
-  cat("\n")
-  #print(data.frame(Variable=xname,Low=tbeta2l,High=tbeta2u))
-  
+  print(info2)
+
   if (graph==1){
     dev.new()
     xxlim <- range(qs)
@@ -455,13 +483,17 @@ SMPLSplit_est <- function(dat,dep,indep,th,plot){
     tit <- paste(conf1*100,c("% Critical"),sep="")
     legend("bottomright",c("LRn(gamma)",tit),lty=c(1,2),col=c(1,2))
   }
-  qhat
+  return(list(threshold=qhat,est0=estimates0,est.low=estimates1,est.high=estimates2,
+              est0.info=info0, est.joint.info=infojt,est.low.info=info1,est.high.info=info2))
 }
 
 
 
+
+
+
 SMPLSplit_het <- function(data,dep,indep,th,trim_per,rep,plot){
-  dat=data
+#  dat=data
   qi=th
   yi=dep
   xi=as.matrix(indep)
@@ -481,11 +513,11 @@ SMPLSplit_het <- function(data,dep,indep,th,trim_per,rep,plot){
   # Set quick=2 for a better bootstrap procedure, which
   # also uses less memory, but is more time consuming
   
-  n <- nrow(dat)
-  q <- dat[,qi]
+  n <- nrow(data)
+  q <- data[,qi]
   qs <- order(q)
-  y <- as.matrix(dat[qs,yi])
-  x <- cbind(matrix(c(1),n,1),dat[qs,xi])
+  y <- as.matrix(data[qs,yi])
+  x <- cbind(matrix(c(1),n,1),data[qs,xi])
   q <- as.matrix(q[qs])
   k <- ncol(x)
   qs <- unique(q)
@@ -631,15 +663,15 @@ SMPLSplit_het <- function(data,dep,indep,th,trim_per,rep,plot){
   cat ("Test of Null of No Threshold Against Alternative of Threshold", "\n")
   cat ("Allowing Heteroskedastic Errors (White Corrected)", "\n")
 #  cat ("\n")
-  cat ("Number of Bootstrap Replications ", rep, "\n")
+  cat ("Number of Bootstrap Replications ", round(rep,0), "\n")
   cat ("Trimming Percentage              ", trim_per, "\n")
 #  cat ("\n")
   cat ("Threshold Estimate               ", qmax, "\n")
-  cat ("LM-test for no threshold         ", ftest, "\n")
+  cat ("LM-test for no threshold         ", round(ftest,4), "\n")
   cat ("Bootstrap P-Value                ", pv, "\n")
   cat ("\n")
   
-  list(f_test=ftest,p_value=pv)
+  return(list(fstat=ftest,pvalue=pv))
 }
 
 

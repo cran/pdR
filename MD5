@@ -1,9 +1,9 @@
-53b808d5590a34ea2f1657d56bb85e43 *DESCRIPTION
+efc114c0f2e5f2c866367603c0e0a028 *DESCRIPTION
 fdd6e5ddb01c188f15ff616da2929d25 *NAMESPACE
-fb0dc57ac5c17fb171607ea74864ddf0 *R/SampleSplitting.R
-0151c4d59036242448de05a5b7653411 *R/hegy.R
+854f23c0d68e0ed9d88e6dad050b9744 *R/SampleSplitting.R
+bd07e0f4df7c88901c10cdca69626389 *R/hegy.R
 526fb3b756a3829d4efe82cb1b7a51ba *R/iClick_plm.R
-0ee73de5c31a05b6ba0bd103c43d563c *R/ptm.R
+f3fe356811629d91b710bfbf26d12d19 *R/ptm.R
 79d59d17bd8727895a4de74c2a1badc4 *R/unitRoot.R
 48a0fa1850743c9cbd8d65829dc7f0b6 *data/bank_income.rda
 b605ee32f70598400aa237e6ffbfa763 *data/cigaretts.rda
@@ -16,9 +16,9 @@ ff0c391eba5d993f241f15efa2f3ac57 *data/inf19.rda
 4ff677ecfe9ee2494229e86c5f371eb2 *data/productivity.rda
 2a1792b1c12cf3f19935e7d8cc221ff1 *man/HEGY.test.Rd
 2ea5c4f8be0763e14eaa9d7120238dc3 *man/IGF.Rd
-8d32fb0aad405b31391b9c825fc756bc *man/SMPLSplit_est.Rd
-8374cb52d255b1ac20ca4294ff3c27d1 *man/SMPLSplit_example.Rd
-099967b2fc18080b43c413ded3a97515 *man/SMPLSplit_het.Rd
+ed5c0e4b7c48a04e03e7623637646dcc *man/SMPLSplit_est.Rd
+b18d02f95bfe408df636c7398ec5705b *man/SMPLSplit_example.Rd
+09e6b33e7f8012e62cc9959b8c24cbeb *man/SMPLSplit_het.Rd
 3e1b8f76170953c0ce3cf94ed787c330 *man/SeasComponent.Rd
 b7d12ad4f73bc296cb00944f3c7c4733 *man/bank_income.Rd
 49d638313deda54840729f49593438a7 *man/cigaretts.Rd

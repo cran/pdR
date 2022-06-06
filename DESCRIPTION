@@ -2,8 +2,8 @@ Package: pdR
 Type: Package
 Title: Threshold Model and Unit Root Tests in Cross-Section and Time
         Series Data
-Version: 1.7
-Date: 2019-07-07
+Version: 1.8
+Date: 2022-06-06
 Author: Ho Tsung-wu
 Maintainer: Ho Tsung-wu <tsungwu@ntnu.edu.tw>
 Description: Threshold model, panel version of Hylleberg et al. (1990) <DOI:10.1016/0304-4076(90)90080-D> seasonal unit root tests, and panel unit root test of Chang (2002) <DOI:10.1016/S0304-4076(02)00095-7>.
@@ -12,6 +12,6 @@ LazyLoad: yes
 Depends: plm, tcltk
 Imports: boot, car, coefplot, lmtest, sandwich, papeR
 NeedsCompilation: no
-Packaged: 2019-07-07 03:36:38 UTC; tsungwu
+Packaged: 2022-06-06 05:32:02 UTC; badal
 Repository: CRAN
-Date/Publication: 2019-07-07 04:40:02 UTC
+Date/Publication: 2022-06-06 19:50:02 UTC

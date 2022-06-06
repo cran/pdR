@@ -140,11 +140,13 @@ vgraph=1
       xxi <- solve(t(xx)%*%xx)
       beta <- xxi%*%(t(xx)%*%yt)
       e <- yt - xx%*%beta
-      xxe <- xx*(e%*%matrix((1),nrow=1,ncol=ncol(xx)))
+      
+	  xxe <- xx*(e%*%matrix((1),nrow=1,ncol=ncol(xx)))
       xxe <- t(xxe)%*%xxe
       sehet <- as.matrix(sqrt(diag(xxi%*%xxe%*%xxi)))
       sehomo <- as.matrix(sqrt(diag(xxi*as.vector((t(e)%*%e))/(ty-n-ncol(xx)))))
-      beta <- cbind(beta,sehomo,sehet)
+     
+	 beta <- cbind(beta,sehomo,sehet)
       cat ("Thresholds", "\n")
       cat (t(rrr), "\n")
       cat ("\n")

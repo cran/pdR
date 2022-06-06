@@ -48,13 +48,15 @@ HEGY.test <- function(wts, itsd, regvar=0, selectlags=list(mode="signf", Pmax=NU
          lmdf <- lmhegyp <- lm(Deltay[,1] ~ 0+Mdetreg + Mhegyreg))
   
   # Lags selection.
-  if(class(selectlags[[1]]) == "numeric"){
+  if(is.numeric(selectlags[[1]])){
     selP <- selectlags[[1]]
-  } else
+  } else {
     switch(selectlags[[1]],
            aic   = selP <- selPabic(lmdet=lmhegyp, type="aic", Pmax=selectlags[[2]]),
            bic   = selP <- selPabic(lmdet=lmhegyp, type="bic", Pmax=selectlags[[2]]),
            signf = selP <- selPsignf(lmdet=lmhegyp, cvref=NULL, Pmax=selectlags[[2]]),)
+  }
+  
   
 # HEGY regression.
 # lmdetlag: regression with deterministic components and lags 
