@@ -153,7 +153,7 @@ vgraph=1
       cat ("Regime-independent Coefficients, standard errors, het standard errors,and t-stat", "\n")
       beta=as.matrix(cbind(beta,c(beta[,1]/beta[,3])))
 
-      indep_beta=matrix(round(cbind(beta[1:k,]),4),,4)
+      indep_beta=matrix(round(cbind(beta[1:k,]),4),nrow(cbind(beta[1:k,]))/4,4)
       colnames(indep_beta)=c("Coeff", "std", "White","tstat")
       cat(" Coeff",  "      std",  "        White","      tstat", "\n")
       betax <- format(beta, digits = 4, scientific = FALSE)
@@ -163,7 +163,8 @@ vgraph=1
 
       for (j in (k+1):nrow(beta)) cat (betax[j,], "\n")
       beta=round(beta,4)
-      dep_beta=as.matrix(cbind(beta[((k+1):nrow(beta)),]),,4)
+      dep_beta=as.matrix(cbind(beta[((k+1):nrow(beta)),]),
+                         nrow(cbind(beta[((k+1):nrow(beta)),]))/4,4)
       colnames(dep_beta)=c("Coeff", "std", "White","tstat")
       cat ("\n")
       cat ("\n")
@@ -231,9 +232,16 @@ return(output)
 }
 
 ptm <- function(dep,ind1,ind2,d,bootn,trimn,qn,conf_lev,t,n){
-
-boot_1=bootn[1];boot_2=bootn[2];boot_3=bootn[3]
-trim_1=trimn[1];trim_2=trimn[2];trim_3=trimn[3]
+dep=as.matrix(dep)
+ind1=as.matrix(ind1)
+ind2=as.matrix(ind2)
+d=as.matrix(d)
+boot_1=bootn[1]
+boot_2=bootn[2]
+boot_3=bootn[3]
+trim_1=trimn[1]
+trim_2=trimn[2]
+trim_3=trimn[3]
 
 #tt <- t-max_lag
 tt=t

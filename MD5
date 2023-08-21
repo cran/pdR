@@ -1,9 +1,8 @@
-efc114c0f2e5f2c866367603c0e0a028 *DESCRIPTION
-fdd6e5ddb01c188f15ff616da2929d25 *NAMESPACE
+9dd4b1a0a954c63a2e957f247ea70474 *DESCRIPTION
+9faeecbe41f9d7974eb908462374d21c *NAMESPACE
 854f23c0d68e0ed9d88e6dad050b9744 *R/SampleSplitting.R
 bd07e0f4df7c88901c10cdca69626389 *R/hegy.R
-526fb3b756a3829d4efe82cb1b7a51ba *R/iClick_plm.R
-f3fe356811629d91b710bfbf26d12d19 *R/ptm.R
+54a93490dc1c31213ef6e5dd8ae2887c *R/ptm.R
 79d59d17bd8727895a4de74c2a1badc4 *R/unitRoot.R
 48a0fa1850743c9cbd8d65829dc7f0b6 *data/bank_income.rda
 b605ee32f70598400aa237e6ffbfa763 *data/cigaretts.rda
@@ -26,8 +25,6 @@ cbb7dfbeaeaa9e3f91451f8cff22c013 *man/contts.Rd
 10c29f135adcf85765046e876fe0b130 *man/crime.Rd
 f6ae4838fca7aa71c13e27ebfa5c28a7 *man/dur_john.Rd
 c80bdc3002b33f08d4aaf028be9c4c81 *man/hegy.reg.Rd
-aec2d3df60f0efe46aaa39447383a950 *man/iClick_plm1way.Rd
-d6cb983daed05d51298f06d65018fcd4 *man/iClick_plm2way.Rd
 37c374a377d6197ac4ce36b37e873f6c *man/inf19.Rd
 60added57d99cc3eda9ef77c34571866 *man/inf_M.Rd
 4d2609a803df270fc7eda5edb9388a44 *man/inf_Q.Rd
@@ -38,7 +35,7 @@ e0aa3354ef2ddcc0744b340cde2dc588 *man/interpolpval.Rd
 ff33f481223ff9b490a9f9a71e7aba6c *man/lookupCVtable.Rd
 2ed8dfc24f30ae4283d13e96070e1adb *man/model.Rd
 9f62fb007decd96707fa66e0e8a9c9d9 *man/pIGF.Rd
-8eff25e34fd57f9fd5b6e061f578ff41 *man/pdR-package.Rd
+834b2abf158e14abaec4e6e75ff15c7b *man/pdR-package.Rd
 6fe756f528e4290573e9d61cca7390b6 *man/productivity.Rd
 83d74a5b6c483dcadf737e11a4edd0bc *man/ptm.Rd
 ffcdf81b9578dd2e87b3f820df181c0e *man/r_est.Rd
