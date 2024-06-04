@@ -1,7 +1,8 @@
-9dd4b1a0a954c63a2e957f247ea70474 *DESCRIPTION
-9faeecbe41f9d7974eb908462374d21c *NAMESPACE
+519fac27bfe7be15d87410047b97cae2 *DESCRIPTION
+076d68008541086bb90c6b213d2fe524 *NAMESPACE
 854f23c0d68e0ed9d88e6dad050b9744 *R/SampleSplitting.R
 bd07e0f4df7c88901c10cdca69626389 *R/hegy.R
+c76f07cb05cd6b409508aa8912281c37 *R/mis.R
 54a93490dc1c31213ef6e5dd8ae2887c *R/ptm.R
 79d59d17bd8727895a4de74c2a1badc4 *R/unitRoot.R
 48a0fa1850743c9cbd8d65829dc7f0b6 *data/bank_income.rda
@@ -13,6 +14,7 @@ ff0c391eba5d993f241f15efa2f3ac57 *data/inf19.rda
 7008430d251a79a5eda96e277cfb5d39 *data/inf_Q.rda
 0e1f58ef9804328df9a038f19ba573b9 *data/invest.rda
 4ff677ecfe9ee2494229e86c5f371eb2 *data/productivity.rda
+68b6713f4da4166389f162b876ed983a *data/ship.rda
 2a1792b1c12cf3f19935e7d8cc221ff1 *man/HEGY.test.Rd
 2ea5c4f8be0763e14eaa9d7120238dc3 *man/IGF.Rd
 ed5c0e4b7c48a04e03e7623637646dcc *man/SMPLSplit_est.Rd
@@ -25,6 +27,7 @@ cbb7dfbeaeaa9e3f91451f8cff22c013 *man/contts.Rd
 10c29f135adcf85765046e876fe0b130 *man/crime.Rd
 f6ae4838fca7aa71c13e27ebfa5c28a7 *man/dur_john.Rd
 c80bdc3002b33f08d4aaf028be9c4c81 *man/hegy.reg.Rd
+08e25cb1a82dfc78287ad27d714301f6 *man/htest_pglm.Rd
 37c374a377d6197ac4ce36b37e873f6c *man/inf19.Rd
 60added57d99cc3eda9ef77c34571866 *man/inf_M.Rd
 4d2609a803df270fc7eda5edb9388a44 *man/inf_Q.Rd
@@ -42,6 +45,7 @@ ffcdf81b9578dd2e87b3f820df181c0e *man/r_est.Rd
 c84631717c9a57366de9440e5b30fb6c *man/ret.Rd
 db6a863a245c9a8ab2603e27382c23e3 *man/selPabic.Rd
 58609c84e73417369531141566ed46d8 *man/selPsignf.Rd
+df372aa5f51030e7889e5fb3deef3937 *man/ship.Rd
 966be07797fca2719cdf9f32372266c0 *man/sse_calc.Rd
 cea9ab394474fbd0fc77aa417448b049 *man/tbar.Rd
 39ce00e65b1660821f05941a6383fcf7 *man/thr_sse.Rd
