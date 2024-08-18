@@ -150,19 +150,25 @@ vgraph=1
       cat ("Thresholds", "\n")
       cat (t(rrr), "\n")
       cat ("\n")
-      cat ("Regime-independent Coefficients, standard errors, het standard errors,and t-stat", "\n")
+      cat ("Regime-independent Coef, std errors, het std errors,and t-stat", "\n")
       beta=as.matrix(cbind(beta,c(beta[,1]/beta[,3])))
 
-      indep_beta=matrix(round(cbind(beta[1:k,]),4),nrow(cbind(beta[1:k,]))/4,4)
+      #indep_beta=as.matrix(cbind(beta[1:k,]),nrow(cbind(beta[1:k,]))/4,4)
+      
+      indep_beta=as.numeric(format(beta[1:k,], digits = 4, scientific = FALSE))
+      indep_beta=matrix(indep_beta,length(indep_beta)/4,4)
       colnames(indep_beta)=c("Coeff", "std", "White","tstat")
+
       cat(" Coeff",  "      std",  "        White","      tstat", "\n")
       betax <- format(beta, digits = 4, scientific = FALSE)
-      for (j in 1:k) cat (betax[j,], "\n")
-      cat ("\n")
-      cat ("Regime-dependent Coefficients, standard errors, het standard errors,and t-stat", "\n")
 
+      for (j in 1:k) cat(betax[j,], "\n") 
+      cat ("\n")
+      cat ("Regime-dependent Coef, std errors, het std errors,and t-stat", "\n")
+      
+     
       for (j in (k+1):nrow(beta)) cat (betax[j,], "\n")
-      beta=round(beta,4)
+
       dep_beta=as.matrix(cbind(beta[((k+1):nrow(beta)),]),
                          nrow(cbind(beta[((k+1):nrow(beta)),]))/4,4)
       colnames(dep_beta)=c("Coeff", "std", "White","tstat")
