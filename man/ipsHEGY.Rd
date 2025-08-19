@@ -13,7 +13,7 @@ This function performs panel data-based HEGY seasonal unit root test, the asympt
 }
 
 \usage{
-ipsHEGY(data, itsd, Sel, pmax, CIPS = TRUE)
+ipsHEGY(data,deterministic =c(1,0,0),lag.method="AIC",maxlag=12,CIPS = TRUE)
 
 }
 
@@ -22,16 +22,17 @@ ipsHEGY(data, itsd, Sel, pmax, CIPS = TRUE)
 Panel data, T by N
 
 }
-  \item{itsd}{Options for c(i,t,sd).\cr 
-  i=1, intercept;=0 no intercept.\cr
-  t=1, trend;=0 no deterministic trend.\cr
-	sd=1, season dummy 1:(s-1);=0 no.
+  \item{deterministic}{Options for deterministic components.\cr 
+  c(1,0,0), intercept only.\cr
+  c(0,1,0), trend only.\cr
+	c(0,0,1),, season dummy only.\cr
+  
 
 }
-  \item{Sel}{
-Selection of lags, having three options: "signf","bic","aic".
+  \item{lag.method}{
+Selection of optimal lags, having for options: "fixed","AIC", "BIC", "AICc".
 
-}  \item{pmax}{
+}  \item{maxlag}{
 Maximum number of lags for searching optimal criteria.
 
 }
@@ -41,9 +42,10 @@ Logical. If TRUE, using Pesaran(2007) to account for cross-section correlation. 
 }
 }
 \details{
-Mode for selectlags has three options, AIC and BIC use R built-in functions for linear model and their meanings are popular and straightforward. "signf" includes only statistically significant lags, and statistically insignificant lags are dropped from regressors. That is, once you select this option, lags of your model may not be continuous.\cr
+Mode for selectlags has four options, AIC,AICc and BIC use R built-in functions for linear model and their meanings are popular and straightforward. "fixed" fixes maxlag as the number of lags. \cr
 The critical values for panel HEGY are standard normal for individual t-ratios, however,you need to perform simulation for the critical values of F joint test, at pdR 1.3. To this end, you are encouraged to work this out for yourself: using arima.sim() to sample seasonal time series with unit root (1-order difference) and obtain their statistics under the null using ipsHEGY(), then it is streightforward to obtain critical values.\cr
-Otero et al. (2007) provide critical values for quarterly frequency.
+Otero et al. (2007) provide critical values for quarterly frequency. \cr
+The univariate HEGY is based on R package \code{uroot}, simply modified to include cross-secionaal average.
 }
 \value{
 
@@ -63,21 +65,17 @@ Ho Tsung-wu <tsungwu@ntnu.edu.tw>, College of Management, National Taiwan Normal
 
 
 \examples{
-data(inf_Q)
-dataz<-inf_Q
-itsd<-c(1,0,c(1:3))
+data(inf_M)
+
 #Seasonal dummy only takes quarters 1:3, 
 #becasue of the presence of common intercept.
-Sel<-"bic" # "aic","bic", "signf".
-pmax<-12
 
-OUT<-ipsHEGY(dataz,itsd,Sel,pmax,CIPS=FALSE)
+OUT<-ipsHEGY(inf_M, deterministic = c(1,1,1), lag.method = "AIC", maxlag = 12,CIPS=TRUE)
 OUT$P_HEGY
 OUT$U_HEGY
 
+
 # Simulation of critical values
-
-
 
 
 
