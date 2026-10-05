@@ -2,7 +2,7 @@
 \alias{inf_Q}
 \docType{data}
 \title{
-Quarterly inflation time series of 20 countries
+Quarterly inflation time series of 19 countries
 }
 
 \description{Quarterly inflation time series of 19 countries, 1971Q1~2014Q4

@@ -88,3 +88,11 @@ tbar <- function(x){
   }
   return(pmean)
 }
+
+
+
+
+
+
+
+

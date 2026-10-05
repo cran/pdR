@@ -25,6 +25,6 @@ columes }
 
 
 \examples{
-#data(invest)
-#head(invest)
+data(invest)
+head(invest)
 }

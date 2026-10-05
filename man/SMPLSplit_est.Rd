@@ -75,14 +75,14 @@ h=1, heteroskedasticity-consistent covariance; h=0, homoskedastic case.
 }
 
 \examples{
-## Not run, becasue of bootstrap replicaiton takes time. Users may unmark # and run. 
+## Not run
 data("dur_john")
 rep <- 500
 trim_per <- 0.15
 dep <- "gdpGrowth"
 indep <- colnames(dur_john)[c(2,3,4,5)]
 
-SMPLSplit_est(data=dur_john,dep,indep,th="GDP60",plot=0,h=1,nonpar=2)
+#SMPLSplit_est(data=dur_john,dep,indep,th="GDP60",plot=0,h=1,nonpar=2)
 
 
 }

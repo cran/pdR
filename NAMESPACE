@@ -1,5 +1,5 @@
 exportPattern("^[[:alpha:]]+")
-import('glmmTMB','lme4','pglm',"plm")
+import('pglm',"plm")
 importFrom("graphics", "abline", "grid", "legend", "lines","par", "plot.new", "plot", "title")
 importFrom("stats", "na.omit","ppoints", "time", "var")
 importFrom("stats","AIC","anova","approx","BIC","coef","embed","lm","pnorm","update")

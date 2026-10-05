@@ -25,7 +25,7 @@ Panel data, T by N
   \item{deterministic}{Options for deterministic components.\cr 
   c(1,0,0), intercept only.\cr
   c(0,1,0), trend only.\cr
-	c(0,0,1),, season dummy only.\cr
+	c(0,0,1), season dummy only.\cr
   
 
 }

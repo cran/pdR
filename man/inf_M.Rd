@@ -5,7 +5,7 @@
 Monthly inflation time series of 20 countries
 }
 
-\description{Monthly inflation time series of 19 countries, 1971.1~2011.12
+\description{Monthly inflation time series of 20 countries, 1971.1~2011.12
 }
 \usage{data(inf_M)
 }

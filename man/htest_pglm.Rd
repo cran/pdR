@@ -16,9 +16,9 @@ htest_pglm(RE, FE, re.method)
 }
 
 \arguments{
-  \item{RE}{Random effect objects. Support pglm, glmer, glmmTMB}
+  \item{RE}{Random effect objects. Support pglm, glmer}
   \item{FE}{Fixed effect objects.}
-  \item{re.method}{Method that used to estimate the random effect estimation, in addition to "pglm", it also supports "glmmTMB" of package glmmTMB, and "glmer" of package lme4.
+  \item{re.method}{Method that used to estimate the random effect estimation, in addition to "pglm", it also supports "glmmTMB" of glmmTMB, and "glmer" of lme4.
 }
 
 }
@@ -35,7 +35,7 @@ Ho Tsung-wu <tsungwu@ntnu.edu.tw>, modifed from phtest() of plm
 data(ship)
 library(pglm)
 Eq1="accident  ~  op_75_79+co_65_69+co_70_74+co_75_79"
-FE.pois <- pglm(Eq1,data=ship,family = "poisson",model = "within",index = 'ship',R=10)
+FE.pois <- pglm::pglm(Eq1,data=ship,family = "poisson",model = "within",index = 'ship',R=10)
 
 RE.pois <- pglm::pglm(Eq1,data=ship,family = "poisson", model = "random", index = 'ship')
 

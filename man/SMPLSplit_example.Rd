@@ -60,13 +60,16 @@ SMPLSplit_example(data,dep,indep,th1,th2,trim_per,rep,plot)
 
 \examples{
 ## Not run, becasue of bootstrap replicaiton takes time. Users may unmark # and run. 
+
+
 data("dur_john")
-#rep <- 500
-#trim_per <- 0.15
-#dep <- "gdpGrowth"
-#indep <- colnames(dur_john)[c(2,3,4,5)]
-#th1 <- "GDP60"
-#th2 <- "Literacy"
+rep <- 500
+trim_per <- 0.15
+dep <- "gdpGrowth"
+indep <- colnames(dur_john)[c(2,3,4,5)]
+th1 <- "GDP60"
+th2 <- "Literacy"
+
 #OUT=SMPLSplit_est(data=dur_john,dep,indep,th=th1,plot=0,h=1,nonpar=2)
 #OUT$TEST
 #OUT$Hypothesis
@@ -75,5 +78,7 @@ data("dur_john")
 #colnames(stat)=c("F-Stat","P-value")
 #rownames(stat)=OUT$Hypothesis
 #stat
+
+
 
 }

@@ -24,9 +24,9 @@ Ho Tsung-wu <tsungwu@ntnu.edu.tw>, College of Management, National Taiwan Normal
 }
 
 \examples{
-#library(pdR)
-#data(inf19)
-#y<-inf19[,1]
-#lagSelect(y,maxp=25,ic="BIC")
+
+data(inf19)
+y<-inf19[,1]
+lagSelect(y,maxp=12,ic="BIC")
 }
 
